@@ -108,7 +108,7 @@ val res6 =res5.union(df8)
 val res7 =res6.union(df9)
 
 //Partitioning
-res7.sort("Subject").coalesce(5000).write.mode(SaveMode.Append).saveAsTable("TableWithPartitions")
+res7.sort("Subject").coalesce(3000).write.mode(SaveMode.Append).saveAsTable("TableWithPartitions")
 
 
 val now = System.nanoTime
