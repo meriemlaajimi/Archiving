@@ -113,8 +113,8 @@ res7.write.mode(SaveMode.Append).saveAsTable("TableWithoutPartitions")
 
 val now = System.nanoTime
 //Star query
-sqlContext.sql("SELECT Subject, Object FROM TableWithoutPartitions WHERE Predicate = '<http://xmlns.com/foaf/0.1/accountName>' and version='v25'").write.saveAsTable("table2")
- sqlContext.sql("SELECT Subject, Object FROM TableWithoutPartitions WHERE Predicate = '<http://xmlns.com/foaf/0.1/accountProfilePage>'  and version='v30'").write.saveAsTable("table3")
+sqlContext.sql("SELECT Subject, Object FROM TableWithoutPartitions WHERE Predicate = '<http://xmlns.com/foaf/0.1/accountName>' and version='v1'").write.saveAsTable("table2")
+ sqlContext.sql("SELECT Subject, Object FROM TableWithoutPartitions WHERE Predicate = '<http://xmlns.com/foaf/0.1/accountProfilePage>'  and version='v5'").write.saveAsTable("table3")
 val df14 =sqlContext.sql("SELECT * FROM table2  INNER JOIN table3 ON table2.Subject = table3.Subject ").saveAsTable("StarQuery")
 
 
