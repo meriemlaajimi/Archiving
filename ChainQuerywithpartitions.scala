@@ -114,8 +114,8 @@ res7.sort("Subject").coalesce(3000).write.mode(SaveMode.Append).saveAsTable("Tab
 
 val now = System.nanoTime
 //Chain query
-sqlContext.sql("SELECT Subject, Object FROM TableWithPartitions WHERE Predicate = '<http://xmlns.com/foaf/0.1/accountName>' and version='v25'").write.saveAsTable("table2")
- sqlContext.sql("SELECT Subject, Object FROM TableWithPartitions WHERE Predicate = '<http://xmlns.com/foaf/0.1/accountProfilePage>'  and version='v30'").write.saveAsTable("table3")
+sqlContext.sql("SELECT Subject, Object FROM TableWithPartitions WHERE Predicate = '<http://xmlns.com/foaf/0.1/accountName>' and version='v1'").write.saveAsTable("table2")
+ sqlContext.sql("SELECT Subject, Object FROM TableWithPartitions WHERE Predicate = '<http://xmlns.com/foaf/0.1/accountProfilePage>'  and version='v5'").write.saveAsTable("table3")
 val df14 =sqlContext.sql("SELECT * FROM table2  INNER JOIN table3 ON table2.Object = table3.Subject ").saveAsTable("ChainQuery")
 
 
