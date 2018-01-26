@@ -112,7 +112,7 @@ res7.write.mode(SaveMode.Append).saveAsTable("TableWithoutPartitions")
 
 
 val now = System.nanoTime
-//S?? query
+//?P? query
 val df10=sqlContext.sql("SELECT Subject,Predicate,Object from TableWithoutPartitions  where version ='v5' and Predicate='<http://rdfs.org/sioc/ns#account_of> '").write.saveAsTable("Table?P?")
 
 
